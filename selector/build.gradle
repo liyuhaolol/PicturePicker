@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdk 34
@@ -25,13 +26,15 @@ android {
         abortOnError false
     }
     namespace 'com.luck.picture.lib'
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
 }
 
-ext {
-    PUBLISH_ARTIFACT_ID = "pictureselector"
-}
 
-apply from: '../publish.gradle'
 
 dependencies {
     implementation "androidx.appcompat:appcompat:${cfgs.version_appcompat}"
@@ -41,4 +44,17 @@ dependencies {
     implementation "androidx.exifinterface:exifinterface:${cfgs.exifinterface_version}"
     implementation "androidx.viewpager2:viewpager2:${cfgs.viewpage2}"
     implementation "androidx.constraintlayout:constraintlayout:${cfgs.constraintlayout}"
+}
+
+afterEvaluate {
+    publishing {
+        publications{
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.liyuhaolol'
+                artifactId = 'PicturePicker'
+                version = "v3.11.2"
+            }
+        }
+    }
 }
