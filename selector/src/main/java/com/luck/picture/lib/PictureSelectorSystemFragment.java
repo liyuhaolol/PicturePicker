@@ -68,7 +68,10 @@ public class PictureSelectorSystemFragment extends PictureCommonFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         createSystemContracts();
-        if (PermissionChecker.isCheckReadStorage(selectorConfig.chooseMode,getContext())) {
+        //直接打开相册
+        openSystemAlbum();
+        //这里不要再检查权限了，因为华为要说明，你怎可能在三方上做适配呢？
+/*        if (PermissionChecker.isCheckReadStorage(selectorConfig.chooseMode,getContext())) {
             openSystemAlbum();
         } else {
             String[] readPermissionArray = PermissionConfig.getReadPermissionArray(getAppContext(), selectorConfig.chooseMode);
@@ -88,7 +91,7 @@ public class PictureSelectorSystemFragment extends PictureCommonFragment {
                     }
                 });
             }
-        }
+        }*/
     }
 
     @Override

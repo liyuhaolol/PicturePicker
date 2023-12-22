@@ -426,7 +426,9 @@ public class PictureSelectorFragment extends PictureCommonFragment
 
     private void requestLoadData() {
         mAdapter.setDisplayCamera(isDisplayCamera);
-        if (PermissionChecker.isCheckReadStorage(selectorConfig.chooseMode, getContext())) {
+        //直接加载数据
+        beginLoadData();
+/*        if (PermissionChecker.isCheckReadStorage(selectorConfig.chooseMode, getContext())) {
             beginLoadData();
         } else {
             String[] readPermissionArray = PermissionConfig.getReadPermissionArray(getAppContext(), selectorConfig.chooseMode);
@@ -446,7 +448,7 @@ public class PictureSelectorFragment extends PictureCommonFragment
                     }
                 });
             }
-        }
+        }*/
     }
 
     @Override
