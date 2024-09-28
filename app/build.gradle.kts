@@ -46,4 +46,9 @@ dependencies {
     implementation (libs.androidx.appcompat)
     implementation (libs.material)
     implementation (libs.androidx.constraintlayout)
+    implementation ("io.github.lucksiege:pictureselector:v3.11.2")
+    implementation ("io.github.lucksiege:ucrop:v3.11.2")
+    implementation ("io.github.lucksiege:camerax:v3.11.2")
+    implementation ("io.github.liyuhaolol:Permission:1.2.6")
+    implementation ("io.github.liyuhaolol:glideutils:1.2.0")
 }
